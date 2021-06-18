@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CoinInfo } from "../../interface/coin-info";
 import { CoinPrice } from "../../interface/coin-price";
 import { CoinService } from "../../services/coin.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -33,10 +34,10 @@ export class DetailComponent implements OnInit {
     this._coinMarketPrice = value;
   }
 
-  constructor(public route:ActivatedRoute,public coinService: CoinService) { }
+  constructor(public route:ActivatedRoute,public coinService: CoinService, public router: Router) { }
 
   ngOnInit(){
-    this.coinId = this.route.snapshot.paramMap.get('id');
+    this.rerouteToHome();
     this.getCoinInfoById();
     this.getCoinMarketDataById();
   }
@@ -55,5 +56,13 @@ export class DetailComponent implements OnInit {
 
   removeDecimal(number: number):string{
     return (Math.round(number * 100) / 100).toFixed(2);
+  }
+
+  rerouteToHome(){
+    this.coinId = this.route.snapshot.paramMap.get('id');
+    if(this.coinId == '' || this.router.url == '/detail'){
+      // @ts-ignore
+      this.router.navigateByUrl('/home');
+    }
   }
 }

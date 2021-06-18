@@ -23,26 +23,10 @@ export class AppComponent implements OnInit{
     {
       label: 'Overview',
       icon: 'layers',
-      showOnMobile: true,
-      showOnTablet: true,
-      showOnDesktop: true,
-      link: '/overview'
-    },
-    {
-      label: 'Calculator',
-      icon: 'calculate',
-      showOnMobile: false,
-      showOnTablet: true,
-      showOnDesktop: true,
-      link: '/calculate'
-    },
-    {
-      label: 'Contact',
-      icon: 'import_contacts',
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: false,
-      link: '/Contact'
+      link: '/overview'
     }
   ];
 
