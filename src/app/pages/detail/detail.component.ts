@@ -53,7 +53,7 @@ export class DetailComponent implements OnInit {
     }));
   }
 
-  removeDecimal(number: number):number{
-    return Math.round(number);
+  removeDecimal(number: number):string{
+    return (Math.round(number * 100) / 100).toFixed(2);
   }
 }

@@ -5,7 +5,16 @@ export interface CoinInfo {
   description: string,
   open_source: boolean | null,
   org_structure: string | null
-  links: string[];
+  links: links;
   symbol: string;
   type: string;
+}
+
+export interface links {
+  explorer: string[] | undefined;
+  facebook: string | undefined;
+  reddit: string | undefined;
+  source_code: string | undefined;
+  website: string | undefined;
+  youtube: string | undefined;
 }
