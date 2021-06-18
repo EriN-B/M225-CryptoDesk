@@ -26,15 +26,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { CalculatorComponent } from './pages/calculator/calculator.component';
 import { DetailComponent } from './pages/detail/detail.component';
-
-
-
-
-
-
-
-
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoadingDialogComponent } from './pages/loading-dialog/loading-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +35,8 @@ import { DetailComponent } from './pages/detail/detail.component';
     HomeComponent,
     OverviewComponent,
     CalculatorComponent,
-    DetailComponent
+    DetailComponent,
+    LoadingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +58,8 @@ import { DetailComponent } from './pages/detail/detail.component';
     MatMenuModule,
     MatDividerModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {CoinService} from "../../services/coin.service";
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoadingDialogComponent } from "../loading-dialog/loading-dialog.component";
 
 export interface Coin {
   id: string;
@@ -16,8 +18,9 @@ export interface Coin {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public coinService:CoinService,private router: Router) { }
+  constructor(public coinService:CoinService,private router: Router,public dialog: MatDialog) { }
 
+  // @ts-ignore
   public coinID: string[] = [];
 
   myControl = new FormControl();
@@ -26,16 +29,23 @@ export class HomeComponent implements OnInit {
   inputId: any;
 
   async ngOnInit() {
-    this.coinID = await this.coinService.getCoins();
+    this.openDialog();
+    await this.coinService.getCoins().then((data =>{
+      this.coinID = data;
+      this.closeDialog();
+    }))
+    console.log(this.coinID)
   }
 
   addItemsToAutoComplete(){
-    for(let id of this.coinID){
-      this.options.push({
-        id: id
-      })
+    if(this.options.length == 0){
+      for(let id of this.coinID){
+        this.options.push({
+          id: id
+        })
+      }
+      this.setupAutocomplete();
     }
-    this.setupAutocomplete();
   }
 
   navigateToDetailPage(){
@@ -60,5 +70,13 @@ export class HomeComponent implements OnInit {
     const filterValue = name.toLowerCase();
 
     return this.options.filter(option => option.id.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  openDialog(){
+    this.dialog.open(LoadingDialogComponent);
+  }
+
+  closeDialog(){
+    this.dialog.closeAll();
   }
 }
