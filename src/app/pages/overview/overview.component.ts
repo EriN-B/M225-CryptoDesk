@@ -3,6 +3,8 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {CoinService} from "../../services/coin.service";
+import { CoinPrice } from "../../interfaces/coin-price";
+import { CoinLeaderboard } from "../../interfaces/coin-leaderboard";
 
 export interface PeriodicElement {
   name: string;
@@ -32,10 +34,33 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class OverviewComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'price', 'percent'];
+
+  // @ts-ignore
+  public coinID: string[] = [];
+
   dataSource = ELEMENT_DATA;
 
-  ngOnInit() {
+  constructor(public coinService:CoinService) {
+  }
+
+  async ngOnInit() {
+    await this.coinService.getTop10CoinId().then((data =>{
+      this.coinID = data;
+    }));
+  }
+  /*
+  async getTopTenCoins(){
+    await this.coinService.getCoinInfoById(this.coinId).then((data =>{
+      this.coinInfo = data;
+    }));
+  }
+
+  getTopTenCoins(){
 
   }
+
+   */
+
+
 
 }

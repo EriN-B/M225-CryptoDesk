@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CoinInfo } from "../../interface/coin-info";
-import { CoinPrice } from "../../interface/coin-price";
+import { CoinInfo } from "../../interfaces/coin-info";
+import { CoinPrice } from "../../interfaces/coin-price";
 import { CoinService } from "../../services/coin.service";
 import { Router } from '@angular/router';
 
@@ -37,7 +37,8 @@ export class DetailComponent implements OnInit {
   constructor(public route:ActivatedRoute,public coinService: CoinService, public router: Router) { }
 
   ngOnInit(){
-    this.rerouteToHome();
+    this.coinId = this.route.snapshot.paramMap.get('id');
+    this.checkReroute();
     this.getCoinInfoById();
     this.getCoinMarketDataById();
   }
@@ -58,10 +59,8 @@ export class DetailComponent implements OnInit {
     return (Math.round(number * 100) / 100).toFixed(2);
   }
 
-  rerouteToHome(){
-    this.coinId = this.route.snapshot.paramMap.get('id');
+  checkReroute(){
     if(this.coinId == '' || this.router.url == '/detail'){
-      // @ts-ignore
       this.router.navigateByUrl('/home');
     }
   }

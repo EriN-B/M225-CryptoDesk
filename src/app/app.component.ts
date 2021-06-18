@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {MenuItem} from "./interface/menu-item";
+import {MenuItem} from "./interfaces/menu-item";
 
 @Component({
   selector: 'app-root',

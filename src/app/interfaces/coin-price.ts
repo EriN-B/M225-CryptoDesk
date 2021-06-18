@@ -1,5 +1,6 @@
 export interface CoinPrice {
   id: string;
+  name: string;
   circulating_supply: number,
   total_supply: number;
   max_supply: number;
