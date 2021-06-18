@@ -6,4 +6,6 @@ export interface CoinInfo {
   open_source: boolean | null,
   org_structure: string | null
   links: string[];
+  symbol: string;
+  type: string;
 }

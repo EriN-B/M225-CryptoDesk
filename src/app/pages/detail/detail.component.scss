@@ -1,35 +1,14 @@
-.title-box{
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-  color: white;
-  background: #3f51b5;
-  height: 200px;
+.content-container{
+  text-align: left;
+  padding-left: 20%;
+  padding-top: 10%;
 }
 
-.title-text{
-  font-weight: 300;
-  font-size: 30px;
-  padding-top: 20px;
+h1{
+  font-weight: 400;
+  font-size: 40px;
 }
 
-.coin-logo{
-  height: 100px;
-  width: auto;
+button{
+  margin-right: 10px;
 }
-
-.detail-box{
-  text-align: center;
-}
-.price-text{
-  font-size: 70px;
-  height: 100px;
-  padding-top: 70px;
-}
-.description-box{
-  margin-left: 25%;
-  margin-right: 25%;
-  display: block;
-}
-

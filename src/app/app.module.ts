@@ -28,6 +28,9 @@ import { CalculatorComponent } from './pages/calculator/calculator.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoadingDialogComponent } from './pages/loading-dialog/loading-dialog.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [
@@ -59,7 +62,8 @@ import { LoadingDialogComponent } from './pages/loading-dialog/loading-dialog.co
     MatDividerModule,
     MatIconModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -49,7 +49,11 @@ export class DetailComponent implements OnInit {
 
   async getCoinMarketDataById(){
     await this.coinService.getCoinMarketDataById(this.coinId).then((data =>{
-      this.coinMarketPrice = data;
+      this.coinMarketPrice = data;;
     }));
+  }
+
+  removeDecimal(number: number):number{
+    return Math.round(number);
   }
 }

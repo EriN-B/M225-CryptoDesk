@@ -32,9 +32,8 @@ export class HomeComponent implements OnInit {
     this.openDialog();
     await this.coinService.getCoins().then((data =>{
       this.coinID = data;
-      this.closeDialog();
-    }))
-    console.log(this.coinID)
+    }));
+    this.closeDialog();
   }
 
   addItemsToAutoComplete(){

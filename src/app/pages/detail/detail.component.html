@@ -1,9 +1,8 @@
-<div class="detail-page">
-  <div class="title-box">
-    <h1 class="title-text">{{coinInfo.name}}</h1>
-  </div>
-  <div class="detail-box">
-
+<div class="content">
+  <div class="content-container">
+    <h1>{{coinInfo.name}}</h1>
+    <button mat-raised-button color="primary">#{{coinInfo.rank}}</button>
+    <button mat-raised-button color="accent">{{coinInfo.symbol}}</button>
+    <button mat-raised-button color="accent">{{coinInfo.type | uppercase}}</button>
   </div>
 </div>
-

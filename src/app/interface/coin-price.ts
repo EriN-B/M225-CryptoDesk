@@ -3,7 +3,6 @@ export interface CoinPrice {
   circulating_supply: number,
   total_supply: number;
   max_supply: number;
-  price: number;
   quotes: quotes;
 }
 
@@ -12,6 +11,7 @@ export interface quotes {
 }
 
 export interface USD {
+    price: number,
     volume_24h: number;
     volume_24h_change_24h: number;
     market_cap: number,
