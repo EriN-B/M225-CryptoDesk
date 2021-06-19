@@ -8,8 +8,6 @@ import {DetailComponent} from "./pages/detail/detail.component";
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'overview', component: OverviewComponent},
-  {path: 'calculate', component: CalculatorComponent},
   {path: 'detail', component: DetailComponent}
 ];
 
