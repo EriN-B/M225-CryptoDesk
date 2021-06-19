@@ -40,16 +40,13 @@ export class CoinService {
     return this.coinID;
   }
 
-  async getCoinInfoById(id: string | null) {
+  async getCoinInfoById(id: string | null):Promise<CoinInfo> {
     return await ((this.http.get<CoinInfo>("https://api.coinpaprika.com/v1/coins/" + id).toPromise()));
   }
 
-  async getCoinMarketDataById(id: string | null){
+  async getCoinMarketDataById(id: string | null):Promise<CoinPrice>{
+    console.log(this.http.get<CoinPrice>("https://api.coinpaprika.com/v1/tickers/" + id).toPromise());
     return await ((this.http.get<CoinPrice>("https://api.coinpaprika.com/v1/tickers/" + id).toPromise()));
-  }
-
-  log(){
-    console.log(this.coinID);
   }
 
 }
