@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class DetailComponent implements OnInit {
 
+  buttonColor: string = '';
+
   coinId:string | null = '';
   // @ts-ignore
   public _coinInfo: CoinInfo;
@@ -53,6 +55,11 @@ export class DetailComponent implements OnInit {
     await this.coinService.getCoinMarketDataById(this.coinId).then((data =>{
       this.coinMarketPrice = data;;
     }));
+    if(this.coinMarketPrice.quotes.USD.market_cap_change_24h >= 0){
+      this.buttonColor = 'success';
+    }else{
+      this.buttonColor = 'warn';
+    }
   }
 
   removeDecimal(number: number):string{
